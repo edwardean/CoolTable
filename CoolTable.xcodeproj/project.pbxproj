@@ -21,6 +21,8 @@
 		CAA93FEA176D9E8800CB6308 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA93FE9176D9E8800CB6308 /* Default-568h@2x.png */; };
 		CAA93FED176D9E8800CB6308 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA93FEB176D9E8800CB6308 /* MainStoryboard.storyboard */; };
 		CAA93FF8176D9EF100CB6308 /* CoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA93FF7176D9EF100CB6308 /* CoolTableViewController.m */; };
+		CAB3520A177025D500BA49C6 /* CustomFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB35209177025D500BA49C6 /* CustomFooter.m */; };
+		CAB3520C177072D200BA49C6 /* main_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAB3520B177072D200BA49C6 /* main_bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,9 @@
 		CAA93FEC176D9E8800CB6308 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CAA93FF6176D9EF100CB6308 /* CoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoolTableViewController.h; sourceTree = SOURCE_ROOT; };
 		CAA93FF7176D9EF100CB6308 /* CoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoolTableViewController.m; sourceTree = SOURCE_ROOT; };
+		CAB35208177025D500BA49C6 /* CustomFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFooter.h; sourceTree = "<group>"; };
+		CAB35209177025D500BA49C6 /* CustomFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFooter.m; sourceTree = "<group>"; };
+		CAB3520B177072D200BA49C6 /* main_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main_bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,7 @@
 		CAA93FD9176D9E8800CB6308 /* CoolTable */ = {
 			isa = PBXGroup;
 			children = (
+				CAB3520B177072D200BA49C6 /* main_bg.jpg */,
 				CAA93FE2176D9E8800CB6308 /* AppDelegate.h */,
 				CAA93FE3176D9E8800CB6308 /* AppDelegate.m */,
 				CAA93FEB176D9E8800CB6308 /* MainStoryboard.storyboard */,
@@ -99,6 +105,8 @@
 				CA4A82A3176DB0E20077E78A /* CustomCellBackground.m */,
 				CA2D1828176FF58400959121 /* CustomHeader.h */,
 				CA2D1829176FF58400959121 /* CustomHeader.m */,
+				CAB35208177025D500BA49C6 /* CustomFooter.h */,
+				CAB35209177025D500BA49C6 /* CustomFooter.m */,
 				CAA93FF6176D9EF100CB6308 /* CoolTableViewController.h */,
 				CAA93FF7176D9EF100CB6308 /* CoolTableViewController.m */,
 				CA4A82A5176DB66C0077E78A /* Common.h */,
@@ -178,6 +186,7 @@
 				CAA93FE8176D9E8800CB6308 /* Default@2x.png in Resources */,
 				CAA93FEA176D9E8800CB6308 /* Default-568h@2x.png in Resources */,
 				CAA93FED176D9E8800CB6308 /* MainStoryboard.storyboard in Resources */,
+				CAB3520C177072D200BA49C6 /* main_bg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +203,7 @@
 				CA4A82A4176DB0E20077E78A /* CustomCellBackground.m in Sources */,
 				CA4A82A7176DB66C0077E78A /* Common.m in Sources */,
 				CA2D182A176FF58400959121 /* CustomHeader.m in Sources */,
+				CAB3520A177025D500BA49C6 /* CustomFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "CoolTableViewController.h"
 #import "CustomCellBackground.h"
 #import "CustomHeader.h"
+#import "CustomFooter.h"
 @interface CoolTableViewController ()
 @property (copy) NSArray *array;
 @property (copy) NSMutableArray *thingsToLearn;
@@ -33,6 +34,9 @@
     self.title = @"Core Graphics";
     self.thingsToLearn = [@[@"Drawing Rects",@"Drawing Gradients",@"Drawing Arcs"]mutableCopy];
     self.thingsLearned = [@[@"Table Views",@"UIKit",@"Objective-C"]mutableCopy];
+    
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main_bg.jpg"]];
+    self.tableView.backgroundView = background;
     
 }
 
@@ -85,8 +89,14 @@
     }
     return header;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[CustomFooter alloc] init];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 50.0f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 15.0f;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -106,27 +116,48 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSString *entry;
     
-    
-    //START NEW
     if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
-        cell.backgroundView = [[CustomCellBackground alloc] init];
+        CustomCellBackground *backgroundCell = [[CustomCellBackground alloc] init];
+        cell.backgroundView = backgroundCell;
     }
-    if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
-        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
-    }
-    //END VIEW
     
+    if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
+        CustomCellBackground *selectedBackgroundCell = [[CustomCellBackground alloc] init];
+        selectedBackgroundCell.selected = YES;
+        cell.selectedBackgroundView = selectedBackgroundCell;
+    }
+    NSString *entry;
     
     if (indexPath.section == 0) {
         entry = self.thingsToLearn[indexPath.row];
+        ((CustomCellBackground *) cell.backgroundView).lastCell = indexPath.row == self.thingsToLearn.count - 1;
+        ((CustomCellBackground *)cell.selectedBackgroundView).lastCell = indexPath.row == self.thingsToLearn.count - 1;
     } else {
         entry = self.thingsLearned[indexPath.row];
+        ((CustomCellBackground *)cell.backgroundView).lastCell = indexPath.row == self.thingsLearned.count - 1;
+        ((CustomCellBackground *)cell.selectedBackgroundView).lastCell = indexPath.row == self.thingsLearned.count - 1;
     }
+    
+    //START NEW
+//    if (![cell.backgroundView isKindOfClass:[CustomCellBackground class]]) {
+//        cell.backgroundView = [[CustomCellBackground alloc] init];
+//    }
+//    if (![cell.selectedBackgroundView isKindOfClass:[CustomCellBackground class]]) {
+//        cell.selectedBackgroundView = [[CustomCellBackground alloc] init];
+//    }
+    //END VIEW
+    
+    
+//    if (indexPath.section == 0) {
+//        entry = self.thingsToLearn[indexPath.row];
+//    } else {
+//        entry = self.thingsLearned[indexPath.row];
+//    }
     
     cell.textLabel.text = entry;
     cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.highlightedTextColor = [UIColor blackColor];
     
     return cell;
 }

@@ -37,7 +37,12 @@
                                
     //UIColor *redColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0];
     CGRect paperRect = self.bounds;
-    drawLinearGradient(context, paperRect, whiteColor.CGColor, lightGaryColor.CGColor);
+    if (self.selected) {
+        drawLinearGradient(context, paperRect, lightGaryColor.CGColor, separatorColor.CGColor);
+    } else {
+        drawLinearGradient(context, paperRect, whiteColor.CGColor, lightGaryColor.CGColor);
+    }
+    //drawLinearGradient(context, paperRect, whiteColor.CGColor, lightGaryColor.CGColor);
     
     //CGRect strokeRect = CGRectInset(paperRect, 5.0, 5.0);
     //CGRect strokeRect = rectFor1PxStroke(CGRectInset(paperRect, 5.0, 5.0));
@@ -50,7 +55,22 @@
                                
     CGPoint startPoint = CGPointMake(paperRect.origin.x, paperRect.origin.y+paperRect.size.height - 1);
     CGPoint endPoint = CGPointMake(paperRect.origin.x+paperRect.size.width-1, paperRect.origin.y + paperRect.size.height - 1);
-    draw1PxStroke(context, startPoint, endPoint, separatorColor.CGColor);
+    //draw1PxStroke(context, startPoint, endPoint, separatorColor.CGColor);
+    if (!self.lastCell) {
+        draw1PxStroke(context, startPoint, endPoint, separatorColor.CGColor);
+    } else {
+        CGContextSetStrokeColorWithColor(context, whiteColor.CGColor);
+        CGContextSetLineWidth(context, 1.0);
+        
+        CGPoint pointA = CGPointMake(paperRect.origin.x, paperRect.origin.y + paperRect.size.height - 1);
+        CGPoint pointB = CGPointMake(paperRect.origin.x, paperRect.origin.y);
+        CGPoint pointC = CGPointMake(paperRect.origin.x + paperRect.size.width - 1, paperRect.origin.y);
+        CGPoint pointD = CGPointMake(paperRect.origin.x + paperRect.size.width - 1, paperRect.origin.y + paperRect.size.height - 1);
+        
+        draw1PxStroke(context, pointA, pointB, whiteColor.CGColor);
+        draw1PxStroke(context, pointB, pointC, whiteColor.CGColor);
+        draw1PxStroke(context, pointC, pointD, whiteColor.CGColor);
+    }
                                
 }
 /*

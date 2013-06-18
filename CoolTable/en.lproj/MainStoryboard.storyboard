@@ -36,6 +36,7 @@
                 <navigationController definesPresentationContext="YES" id="Tti-1T-jRZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ino-PS-UoL">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="8gU-ev-NcR" kind="relationship" relationship="rootViewController" id="DiP-Qh-uXo"/>
@@ -46,11 +47,6 @@
             <point key="canvasLocation" x="-386" y="31"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CoolTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoolTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
