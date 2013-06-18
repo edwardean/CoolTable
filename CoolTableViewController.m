@@ -8,7 +8,7 @@
 
 #import "CoolTableViewController.h"
 #import "CustomCellBackground.h"
-
+#import "CustomHeader.h"
 @interface CoolTableViewController ()
 @property (copy) NSArray *array;
 @property (copy) NSMutableArray *thingsToLearn;
@@ -41,39 +41,53 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (NSString *)escape:(NSString *)text {
-    
-    //__bridge_transfer:把所有关系给ARC
-    //__bridge_retained:收回ARC的所有关系，举例如下：
-    //假设你有一个NSString并且你需要把它给Core Foundation API让他们取得这个字符串对象的所有权。你不希望ARC再去释放这个对象，因为它会被释放过度导致程序crash。另外使用__bridge_retained将这个对象给了Core Foundation，这样ARC就不再负责释放它了：
-    //Code 例子：
-    NSString *string = [[NSString alloc] initWithFormat:@"My name is Edward Lee"];
-    CFStringRef strRef = (__bridge_retained CFStringRef)string;
-    //do something with strRef
-    CFRelease(strRef);
-
-    
-    //如果不把它当作NSString返回的话，代码可能看起来是这样
-    /*
-     CFStringRef result = CFURLCreateStringByAddingPercentEscapes( ...  );
-     
-     //用result干其它事情
-     
-     CFRelease(result);
-     */
-    
-    /*
-     我们想要做的是在 escape 方法中将 CFStringRef 对象转换为 NSString 对象， 然后 ARC 会在我们不需要它的时候自动释放掉它。 但是 ARC 需要我们告诉它要这样做。 因此， 我们使用 __bridge_transfer 修饰符告诉它，“嘿 ARC， 这个 CFStringRef 对象现在是 NSString对象了， 并且我想要你来释放它， 这样我们就不需要调用 CFRelease() 了”。
-     */
-    
-    //return  (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,(__bridge CFStringRef)text,NULL,CFSTR("!*'();:@&=+$,/?%#[]"),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
-    
-    return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,(__bridge CFStringRef)text,NULL,CFSTR("!*'();:@&=+$,/?%#[]"),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)));
-    CFStringRef ref1 = CFURLCreateStringByAddingPercentEscapes(NULL,"lihang",NULL,"!*'();:@&=+$,/?%#[]",CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
-    NSString *s1 = (__bridge NSString *)ref1;
-}
+//- (NSString *)escape:(NSString *)text {
+//    
+//    //__bridge_transfer:把所有关系给ARC
+//    //__bridge_retained:收回ARC的所有关系，举例如下：
+//    //假设你有一个NSString并且你需要把它给Core Foundation API让他们取得这个字符串对象的所有权。你不希望ARC再去释放这个对象，因为它会被释放过度导致程序crash。另外使用__bridge_retained将这个对象给了Core Foundation，这样ARC就不再负责释放它了：
+//    //Code 例子：
+//    NSString *string = [[NSString alloc] initWithFormat:@"My name is Edward Lee"];
+//    CFStringRef strRef = (__bridge_retained CFStringRef)string;
+//    //do something with strRef
+//    CFRelease(strRef);
+//
+//    
+//    //如果不把它当作NSString返回的话，代码可能看起来是这样
+//    /*
+//     CFStringRef result = CFURLCreateStringByAddingPercentEscapes( ...  );
+//     
+//     //用result干其它事情
+//     
+//     CFRelease(result);
+//     */
+//    
+//    /*
+//     我们想要做的是在 escape 方法中将 CFStringRef 对象转换为 NSString 对象， 然后 ARC 会在我们不需要它的时候自动释放掉它。 但是 ARC 需要我们告诉它要这样做。 因此， 我们使用 __bridge_transfer 修饰符告诉它，“嘿 ARC， 这个 CFStringRef 对象现在是 NSString对象了， 并且我想要你来释放它， 这样我们就不需要调用 CFRelease() 了”。
+//     */
+//    
+//    //return  (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,(__bridge CFStringRef)text,NULL,CFSTR("!*'();:@&=+$,/?%#[]"),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+//    
+//    return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,(__bridge CFStringRef)text,NULL,CFSTR("!*'();:@&=+$,/?%#[]"),CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)));
+//    CFStringRef ref1 = CFURLCreateStringByAddingPercentEscapes(NULL,"lihang",NULL,"!*'();:@&=+$,/?%#[]",CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+//    NSString *s1 = (__bridge NSString *)ref1;
+//}
 #pragma mark - Table view data source
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CustomHeader *header = [[CustomHeader alloc] init];
+    
+    //获取section的Header Title
+    header.titleLabel.text = [self tableView: tableView titleForHeaderInSection:section];
+    
+    if (section == 1) {
+        header.lightColor = [UIColor colorWithRed:0.591 green:0.500 blue:0.847 alpha:1.000];
+        header.darkColor = [UIColor colorWithRed:72/255.0 green:22/255.0 blue:137/255.0 alpha:1.0];
+    }
+    return header;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50.0f;
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;

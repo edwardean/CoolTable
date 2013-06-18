@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2D182A176FF58400959121 /* CustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2D1829176FF58400959121 /* CustomHeader.m */; };
 		CA4A82A4176DB0E20077E78A /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4A82A3176DB0E20077E78A /* CustomCellBackground.m */; };
 		CA4A82A7176DB66C0077E78A /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4A82A6176DB66C0077E78A /* Common.m */; };
 		CAA93FD4176D9E8800CB6308 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA93FD3176D9E8800CB6308 /* UIKit.framework */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2D1828176FF58400959121 /* CustomHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomHeader.h; path = ../CustomHeader.h; sourceTree = "<group>"; };
+		CA2D1829176FF58400959121 /* CustomHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomHeader.m; path = ../CustomHeader.m; sourceTree = "<group>"; };
 		CA4A82A2176DB0E20077E78A /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackground.h; sourceTree = "<group>"; };
 		CA4A82A3176DB0E20077E78A /* CustomCellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellBackground.m; sourceTree = "<group>"; };
 		CA4A82A5176DB66C0077E78A /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				CAA93FEB176D9E8800CB6308 /* MainStoryboard.storyboard */,
 				CA4A82A2176DB0E20077E78A /* CustomCellBackground.h */,
 				CA4A82A3176DB0E20077E78A /* CustomCellBackground.m */,
+				CA2D1828176FF58400959121 /* CustomHeader.h */,
+				CA2D1829176FF58400959121 /* CustomHeader.m */,
 				CAA93FF6176D9EF100CB6308 /* CoolTableViewController.h */,
 				CAA93FF7176D9EF100CB6308 /* CoolTableViewController.m */,
 				CA4A82A5176DB66C0077E78A /* Common.h */,
@@ -188,6 +193,7 @@
 				CAA93FF8176D9EF100CB6308 /* CoolTableViewController.m in Sources */,
 				CA4A82A4176DB0E20077E78A /* CustomCellBackground.m in Sources */,
 				CA4A82A7176DB66C0077E78A /* Common.m in Sources */,
+				CA2D182A176FF58400959121 /* CustomHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +231,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hang Li (B4WB78DCEG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -238,8 +245,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "72E76468-5FD0-4859-A66A-3C404D67FEEE";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -256,14 +264,16 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hang Li (B4WB78DCEG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "229B999B-72C5-47FB-9D9F-F76E8E6AADA0";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -283,10 +293,14 @@
 		CAA93FF5176D9E8800CB6308 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hang Li (B4WB78DCEG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hang Li (B4WB78DCEG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoolTable/CoolTable-Prefix.pch";
 				INFOPLIST_FILE = "CoolTable/CoolTable-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "72E76468-5FD0-4859-A66A-3C404D67FEEE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "72E76468-5FD0-4859-A66A-3C404D67FEEE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -16,3 +16,7 @@ void drawLinearGradient(CGContextRef context,CGRect rect,CGColorRef startColor,C
 CGRect rectFor1PxStroke(CGRect rect);
 
 void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, CGColorRef color);
+
+
+//透明遮罩
+void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor);

@@ -63,3 +63,15 @@ void draw1PxStroke(CGContextRef context, CGPoint startPoint, CGPoint endPoint, C
     
     CGContextRestoreGState(context);
 }
+
+//模仿玻璃效果遮罩
+void drawGlossAndGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor) {
+
+    drawLinearGradient(context, rect, startColor, endColor);
+    
+    UIColor *glossColor1 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.35];
+    UIColor *glossColor2 = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    
+    CGRect tophalf = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height / 2);
+    drawLinearGradient(context, tophalf, glossColor1.CGColor, glossColor2.CGColor);
+}
